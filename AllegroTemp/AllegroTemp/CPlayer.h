@@ -4,12 +4,23 @@ class CPlayer :
 	public Objeto
 {
 	int puntos, ncomida, nagua, energia, nmonedas, direccion, nbalas;
+	ALLEGRO_BITMAP *image;
+	ALLEGRO_BITMAP *ipd; //imagen bala derecha
+	ALLEGRO_BITMAP *ipi; //imagen bala izquierda
 	vector<CBalas> Pistola;
 public:
 
+	void setImage(ALLEGRO_BITMAP *i) {
+
+		if(image != NULL)
+			al_destroy_bitmap(image);
+		image = i;
+	}
+
 	CPlayer() :Objeto::Objeto() {};
-	CPlayer(float x1, float y1, float w1, float h1, ALLEGRO_BITMAP *image) :
-		Objeto::Objeto(x1, y1, w1, h1, image) {
+	CPlayer(float x1, float y1, float w1, float h1) : Objeto::Objeto(x1, y1, w1, h1) {
+
+		image = NULL;
 
 		for (int i = 0; i < 5; i++)
 			Pistola.push_back(CBalas(x, y, 15, 15, 1));
@@ -17,9 +28,20 @@ public:
 		energia = 100;
 		nagua = ncomida = nbalas = nmonedas = puntos = 0;
 		direccion = 1;
+
+		ipi = al_load_bitmap("balai.png");
+		ipd = al_load_bitmap("balad.png");
 	}
 
-	~CPlayer() { }
+	~CPlayer() {
+
+		if (ipi != NULL)
+			al_destroy_bitmap(ipi);
+		if (ipd != NULL)
+			al_destroy_bitmap(ipd);
+		if (image != NULL)
+			al_destroy_bitmap(image);
+	}
 
 	int getPuntos() { return puntos; }
 	void SumarPuntos(int p) { puntos += p; }
@@ -113,6 +135,7 @@ public:
 			}
 		}
 	}
+	
 	void update() {
 
 		int i;
@@ -129,7 +152,7 @@ public:
 			Pistola.erase(Pistola.begin() + i);
 
 		for (auto x : Pistola)
-			x.update();
+			x.update(ipi, ipd);
 
 		al_draw_scaled_bitmap(image, 0, 0, al_get_bitmap_width(image), al_get_bitmap_height(image),
 			x, y, w, h, 1);

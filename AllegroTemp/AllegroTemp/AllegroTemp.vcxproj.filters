@@ -51,9 +51,6 @@
     <ClInclude Include="CBalas.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Juego.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Arbol.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>

@@ -4,13 +4,11 @@ class Objeto
 {
 protected:
 	float x, y, w, h, vx, vy;
-	ALLEGRO_BITMAP  *image;
 
 public:
 
-	Objeto(float x = width / 2, float y = height / 2, float w = 10, float h = 10,
-		ALLEGRO_BITMAP *image = nullptr) :
-		x(x), y(y), w(w), h(h), image(image) {
+	Objeto(float x = width / 2, float y = height / 2, float w = 10, float h = 10) :
+		x(x), y(y), w(w), h(h) {
 		vx = vy = 0;
 	}
 
@@ -53,9 +51,6 @@ public:
 	}
 	float getVY() {
 		return vy;
-	}
-	ALLEGRO_BITMAP *getImage() {
-		return image;
 	}
 
 	~Objeto() { }

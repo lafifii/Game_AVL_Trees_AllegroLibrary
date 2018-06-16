@@ -142,7 +142,6 @@
     <ClInclude Include="CBlock.h" />
     <ClInclude Include="CEnemigo.h" />
     <ClInclude Include="CPlayer.h" />
-    <ClInclude Include="Juego.h" />
     <ClInclude Include="Objeto.h" />
     <ClInclude Include="Recurso.h" />
     <ClInclude Include="Scene.h" />

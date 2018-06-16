@@ -3,17 +3,15 @@
 class CEnemy
 {
 	float x, y, w, h, vx, vy;
-	ALLEGRO_BITMAP  *image;
 	int danger;
 public:
 
-	CEnemy(float x = width / 2, float y = height / 2, float w = 10, float h = 10,
-		ALLEGRO_BITMAP *image = nullptr) :
-		x(x), y(y), w(w), h(h), image(image) {
+	CEnemy(float x = width / 2, float y = height / 2, float w = 10, float h = 10) :
+		x(x), y(y), w(w), h(h) {
 		vx = 2;
 		danger = 100;
 	}
-	void update()
+	void update(ALLEGRO_BITMAP *image)
 	{
 		move();
 		al_draw_scaled_bitmap(image, 0, 0, al_get_bitmap_width(image), al_get_bitmap_height(image), x, y, w, h, 1);

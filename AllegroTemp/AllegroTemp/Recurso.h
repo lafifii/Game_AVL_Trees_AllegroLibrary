@@ -14,28 +14,21 @@ public:
 		tipo = t;
 		if (tipo == 1) {
 			puntos = 100;
-			image = al_load_bitmap("coin.png");
-
 		}//Moneda
 		else if (tipo == 2) {
 			puntos = 150;
-			image = al_load_bitmap("food.png");
 		}
 		// Comida
 		else if (tipo == 3) {
 			puntos = 120;
-			image = al_load_bitmap("agua.png");
 		}// Agua
 		else {
 			puntos = 0;
-			image = al_load_bitmap("portal.png");
 		}//portal
 	}
-	void update() {
+	void update(ALLEGRO_BITMAP *image) {
 
-		if (image != nullptr)
-			al_draw_scaled_bitmap(image, 0, 0, al_get_bitmap_width(image), al_get_bitmap_height(image),
-				x, y, w, h, 1);
+		al_draw_scaled_bitmap(image, 0, 0, al_get_bitmap_width(image), al_get_bitmap_height(image), x, y, w, h, 1);
 	}
 
 	void move() {

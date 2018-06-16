@@ -10,11 +10,30 @@ class Scene {
 	AVLTree <Beacon> ArboldeBeacons;
 	vector<ALLEGRO_BITMAP*> vfondos;
 	int indice, nfondo, maxBeacons;
+
+	ALLEGRO_BITMAP *ie;
+	ALLEGRO_BITMAP *ib;
+
+	ALLEGRO_BITMAP *icoin;
+	ALLEGRO_BITMAP *ifood;
+	ALLEGRO_BITMAP *iagua;
+	ALLEGRO_BITMAP *iportal;
+
 public:
 
 	Scene() {
 
-		player = CPlayer(50, height / 2, 30, 30, al_load_bitmap("TempPlayer.png"));
+		ie = al_load_bitmap("TempEn.png");
+		ib = al_load_bitmap("piso.png");
+
+		icoin = al_load_bitmap("coin.png");
+		ifood = al_load_bitmap("food.png");
+		iagua = al_load_bitmap("agua.png");
+		iportal = al_load_bitmap("portal.png");
+
+		player = CPlayer(50, height / 2, 30, 30);
+		player.setImage(al_load_bitmap("TempPlayer.png"));
+
 		nfondo = 0;
 		maxBeacons = 10;
 		vfondos.push_back(al_load_bitmap("fondo1.png"));
@@ -25,8 +44,6 @@ public:
 		indice = 0;
 		ArboldeBeacons = AVLTree<Beacon>();
 
-
-
 		for (int i = 0; i < maxBeacons; i++)
 			ArboldeBeacons.add(Beacon(i));
 
@@ -35,6 +52,14 @@ public:
 	}
 
 	~Scene() {
+
+		al_destroy_bitmap(ie);
+		al_destroy_bitmap(ib);
+
+		al_destroy_bitmap(icoin);
+		al_destroy_bitmap(ifood);
+		al_destroy_bitmap(iagua);
+		al_destroy_bitmap(iportal);
 
 		while (!vfondos.empty()) {
 
@@ -83,14 +108,14 @@ public:
 
 		//Generando enemigos
 		for (int i = 0; i < Informacion.getNEnemigos(); i++)
-			ve.push_back(CEnemy(80 * i, 100, 50, 50, al_load_bitmap("TempEn.png")));
+			ve.push_back(CEnemy(80 * i, 100, 50, 50));
 		//generando bloques
 		for (int i = 0; i < Informacion.getNBloques(); i++)
 		{
 			if (i % 2 == 0)
-				vb.push_back(CBlock(0 + i * 100, 400, 200, 50, al_load_bitmap("piso.png")));
+				vb.push_back(CBlock(0 + i * 100, 400, 200, 50));
 			else
-				vb.push_back(CBlock(400 + i * 100, 250, 200, 50, al_load_bitmap("piso.png")));
+				vb.push_back(CBlock(400 + i * 100, 250, 200, 50));
 		}
 		srand(time(NULL));
 		//Generando recurso
@@ -133,11 +158,19 @@ public:
 		player.applyBlockPhysics(vb);
 
 		for (auto x : ve)
-			x.update();
+			x.update(ie);
 		for (auto x : vb)
-			x.update();
-		for (auto x : vr)
-			x.update();
+			x.update(ib);
+		for (auto x : vr) {
+			if (x.getTipo() == 1)
+				x.update(icoin);
+			else if (x.getTipo() == 2)
+				x.update(ifood);
+			else if (x.getTipo() == 3)
+				x.update(iagua);
+			else
+				x.update(iportal);
+		}
 
 		int indexEn = player.ColisionMalos(ve);
 		int indexRec = player.ColisionRecurso(vr);
