@@ -1,31 +1,31 @@
 ﻿  includes.h
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(143): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(214): warning C4018: '<': no coinciden signed/unsigned
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(213): warning C4018: '<': no coinciden signed/unsigned
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(135): warning C4018: '>': no coinciden signed/unsigned
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(164): warning C4018: '<': no coinciden signed/unsigned
-  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(175): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionMalos<CEnemy>(std::vector<CEnemy,std::allocator<_Ty>>)' que se está compilando
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(163): warning C4018: '<': no coinciden signed/unsigned
+  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(176): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionMalos<CEnemy>(std::vector<CEnemy,std::allocator<_Ty>>)' que se está compilando
           with
           [
               _Ty=CEnemy
           ]
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(183): warning C4018: '<': no coinciden signed/unsigned
-  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(176): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionRecurso<Recurso>(std::vector<Recurso,std::allocator<_Ty>>)' que se está compilando
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(182): warning C4018: '<': no coinciden signed/unsigned
+  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(177): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionRecurso<Recurso>(std::vector<Recurso,std::allocator<_Ty>>)' que se está compilando
           with
           [
               _Ty=Recurso
           ]
   Source.cpp
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(143): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(214): warning C4018: '<': no coinciden signed/unsigned
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(213): warning C4018: '<': no coinciden signed/unsigned
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(135): warning C4018: '>': no coinciden signed/unsigned
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(164): warning C4018: '<': no coinciden signed/unsigned
-  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(175): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionMalos<CEnemy>(std::vector<CEnemy,std::allocator<_Ty>>)' que se está compilando
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(163): warning C4018: '<': no coinciden signed/unsigned
+  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(176): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionMalos<CEnemy>(std::vector<CEnemy,std::allocator<_Ty>>)' que se está compilando
           with
           [
               _Ty=CEnemy
           ]
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(183): warning C4018: '<': no coinciden signed/unsigned
-  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(176): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionRecurso<Recurso>(std::vector<Recurso,std::allocator<_Ty>>)' que se está compilando
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(182): warning C4018: '<': no coinciden signed/unsigned
+  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(177): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionRecurso<Recurso>(std::vector<Recurso,std::allocator<_Ty>>)' que se está compilando
           with
           [
               _Ty=Recurso

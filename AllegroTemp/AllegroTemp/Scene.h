@@ -157,8 +157,9 @@ public:
 		player.update();
 		player.applyBlockPhysics(vb);
 
-		for (auto x : ve)
-			x.update(ie);
+		for (vector<CEnemy>::iterator it = ve.begin(); it != ve.end(); it++) {
+			it->update(ie);
+		}
 		for (auto x : vb)
 			x.update(ib);
 		for (auto x : vr) {

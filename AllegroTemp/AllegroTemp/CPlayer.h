@@ -154,8 +154,7 @@ public:
 		for (auto x : Pistola)
 			x.update(ipi, ipd);
 
-		al_draw_scaled_bitmap(image, 0, 0, al_get_bitmap_width(image), al_get_bitmap_height(image),
-			x, y, w, h, 1);
+		al_draw_scaled_bitmap(image, 0, 0, al_get_bitmap_width(image), al_get_bitmap_height(image), x, y, w, h, 1);
 	}
 	template<typename T>
 	int ColisionMalos(vector<T> malos) {
