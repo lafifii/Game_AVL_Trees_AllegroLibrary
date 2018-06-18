@@ -1,34 +1,43 @@
-﻿  includes.h
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(143): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(213): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(135): warning C4018: '>': no coinciden signed/unsigned
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(163): warning C4018: '<': no coinciden signed/unsigned
-  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(176): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionMalos<CEnemy>(std::vector<CEnemy,std::allocator<_Ty>>)' que se está compilando
-          with
-          [
-              _Ty=CEnemy
-          ]
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(182): warning C4018: '<': no coinciden signed/unsigned
-  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(177): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionRecurso<Recurso>(std::vector<Recurso,std::allocator<_Ty>>)' que se está compilando
+﻿  algif.c
+  bitmap.c
+  gif.c
+  lzw.c
+  Generando código...
+  includes.h
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(159): warning C4018: '<': no coinciden signed/unsigned
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(166): warning C4018: '<': no coinciden signed/unsigned
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(246): warning C4018: '<': no coinciden signed/unsigned
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(137): warning C4018: '>': no coinciden signed/unsigned
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(216): warning C4018: '<': no coinciden signed/unsigned
+  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(169): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionRecurso<Recurso>(std::vector<Recurso,std::allocator<_Ty>>)' que se está compilando
           with
           [
               _Ty=Recurso
           ]
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(190): warning C4018: '<': no coinciden signed/unsigned
+  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(170): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionMalos<CEnemy>(std::vector<CEnemy,std::allocator<_Ty>>)' que se está compilando
+          with
+          [
+              _Ty=CEnemy
+          ]
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(204): warning C4018: '<': no coinciden signed/unsigned
   Source.cpp
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(143): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(213): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(135): warning C4018: '>': no coinciden signed/unsigned
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(163): warning C4018: '<': no coinciden signed/unsigned
-  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(176): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionMalos<CEnemy>(std::vector<CEnemy,std::allocator<_Ty>>)' que se está compilando
-          with
-          [
-              _Ty=CEnemy
-          ]
-c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(182): warning C4018: '<': no coinciden signed/unsigned
-  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(177): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionRecurso<Recurso>(std::vector<Recurso,std::allocator<_Ty>>)' que se está compilando
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(159): warning C4018: '<': no coinciden signed/unsigned
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(166): warning C4018: '<': no coinciden signed/unsigned
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(246): warning C4018: '<': no coinciden signed/unsigned
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(137): warning C4018: '>': no coinciden signed/unsigned
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(216): warning C4018: '<': no coinciden signed/unsigned
+  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(169): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionRecurso<Recurso>(std::vector<Recurso,std::allocator<_Ty>>)' que se está compilando
           with
           [
               _Ty=Recurso
           ]
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(190): warning C4018: '<': no coinciden signed/unsigned
+  c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(170): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionMalos<CEnemy>(std::vector<CEnemy,std::allocator<_Ty>>)' que se está compilando
+          with
+          [
+              _Ty=CEnemy
+          ]
+c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(204): warning C4018: '<': no coinciden signed/unsigned
   Generando código...
   AllegroTemp.vcxproj -> C:\Users\user\Documents\AED-TF\TF_AED\AllegroTemp\Debug\AllegroTemp.exe

@@ -8,7 +8,7 @@ class Beacon {
 
 public:
 	Beacon(int numerodeBeacon) {
-		portaldebusqueda = true;
+		portaldebusqueda = (rand() % 35) % 3 == 0 ? true : false;
 		nenemigos = rand() % 5;
 		nrecursos = rand() % 9;
 		kmDistancia = numerodeBeacon * 5.5;

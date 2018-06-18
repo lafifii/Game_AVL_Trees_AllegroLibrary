@@ -3,27 +3,26 @@
 class CPlayer :
 	public Objeto
 {
-	int puntos, ncomida, nagua, energia, nmonedas, direccion, nbalas;
-	ALLEGRO_BITMAP *image;
+	int puntos, ncomida, nagua, nmonedas, direccion, nbalas;
+
 	ALLEGRO_BITMAP *ipd; //imagen bala derecha
 	ALLEGRO_BITMAP *ipi; //imagen bala izquierda
 	vector<CBalas> Pistola;
+	float energia;
+
+	ALLEGRO_BITMAP *image;
+
+	//ALGIF_ANIMATION *gif = algif_load_animation("chica.gif");
 public:
 
-	void setImage(ALLEGRO_BITMAP *i) {
-
-		if(image != NULL)
-			al_destroy_bitmap(image);
-		image = i;
-	}
-
 	CPlayer() :Objeto::Objeto() {};
-	CPlayer(float x1, float y1, float w1, float h1) : Objeto::Objeto(x1, y1, w1, h1) {
+	CPlayer(float x1, float y1, float w1, float h1) :
+		Objeto::Objeto(x1, y1, w1, h1) {
 
 		image = NULL;
 
 		for (int i = 0; i < 5; i++)
-			Pistola.push_back(CBalas(x, y, 15, 15, 1));
+			Pistola.push_back(CBalas(x, y, 15, 15));
 
 		energia = 100;
 		nagua = ncomida = nbalas = nmonedas = puntos = 0;
@@ -43,7 +42,15 @@ public:
 			al_destroy_bitmap(image);
 	}
 
+	void setImage(ALLEGRO_BITMAP *i) {
+		if (image != NULL) {
+			al_destroy_bitmap(image);
+		}
+		image = i;
+	}
+
 	int getPuntos() { return puntos; }
+	void RestarPuntos(int p) { puntos -= p; }
 	void SumarPuntos(int p) { puntos += p; }
 	void RestarAgua() { nagua--; }
 	int getEnergia() { return energia; }
@@ -106,20 +113,27 @@ public:
 	}
 
 	template<typename T>
-	void applyBlockPhysics(vector<T> v) {
+	void applyBlockPhysics(vector<T> &v) {
 
 		// desaceleracion en x
-		if (vx > 0.1) vx -= 0.05;
-		else if (vx < -0.1) vx += 0.05;
-		else vx = 0.0;
+		if (energia > 10) {
+			if (vx > 0.1) vx -= 0.05;
+			else if (vx < -0.1) vx += 0.05;
+			else vx = 0.0;
 
 
-		if (SPACE && -3 < vy) vy -= 1.5;
-		else vy += gravity;
+			if (SPACE && -3 < vy) vy -= 1.5;
+			else vy += gravity;
 
-		if (LEFT && vx > -5.0) vx -= 0.1;
-		if (RIGHT && vx < 5.0) vx += 0.1;
-
+			if (LEFT && vx > -5.0) vx -= 0.1;
+			if (RIGHT && vx < 5.0) vx += 0.1;
+		}
+		else
+		{
+			energia += 0.1;
+			vx = 0;
+			vy += gravity;
+		}
 		move();
 
 		for (auto x : v) {
@@ -134,9 +148,18 @@ public:
 				vy = 0.0;
 			}
 		}
+
+
+
 	}
-	
 	void update() {
+
+
+		int cont = 0;
+		for (int j = 0; j<Pistola.size(); j++)
+			if (!Pistola[j].getSeLanzo())
+				al_draw_scaled_bitmap(al_load_bitmap("balita.png"), 0, 0, 30, 30,
+					10 + (cont++) * 20, 10, w, h, 1);
 
 		int i;
 		bool si = false;
@@ -151,28 +174,39 @@ public:
 		if (si && Pistola.size() > 0)
 			Pistola.erase(Pistola.begin() + i);
 
-		for (auto x : Pistola)
-			x.update(ipi, ipd);
+		vector<CBalas>::iterator it;
+		for (it = Pistola.begin(); it != Pistola.end(); it++)
+			it->update(ipi, ipd);
+		
+		al_draw_scaled_bitmap(image, 0, 0, al_get_bitmap_width(image), al_get_bitmap_height(image),
+			x, y, w, h, 1);
 
-		al_draw_scaled_bitmap(image, 0, 0, al_get_bitmap_width(image), al_get_bitmap_height(image), x, y, w, h, 1);
+		//al_draw_bitmap(algif_get_bitmap(gif, al_get_time()), x, y, 0);
+
 	}
 	template<typename T>
 	int ColisionMalos(vector<T> malos) {
 
-		int id = -1;
 		for (int i = 0; i< malos.size(); i++) {
 
 			if (checkCollision(malos[i])) {
 
-				id = i;
+				RestarPuntos(malos[i].getDanger());
+				energia--;
 				break;
 			}
 		}
 
-		if (id != -1)
-			energia--;
+
+		int id = -1;
+		for (auto x : Pistola)
+			if (x.getSeLanzo() && x.getExiste())
+				for (int i = 0; i < malos.size(); i++)
+					if (x.checkCollision(malos[i]))
+						id = i;
 
 		return id;
+
 	}
 
 	template<typename T>
@@ -197,23 +231,34 @@ public:
 				ncomida++;
 			else if (vrecursos[id].getTipo() == 3)
 				nagua++;
-			/*else if (vrecursos[id].getTipo() == 4)
-			{
-			Pistola.push_back(CBalas(0, 0, 10, 10, 1));
-			nbalas = Pistola.size();
-			}*/
+			else if (vrecursos[id].getTipo() == 4)
+				Pistola.push_back(CBalas(x, y, 15, 15));
+
 			SumarPuntos(vrecursos[id].getPuntos());
+			energia++;
 		}
 
 		return id;
 	}
 
 	void Disparar() {
-		int i = 0;
+		int i;
 		for (i = 0; i < Pistola.size(); i++)
 			if (!Pistola[i].getSeLanzo())
 				break;
-		if (Pistola.size()>0)
+		if (Pistola.size() > 0)
+		{
+			Pistola[i].setX(x);
+			Pistola[i].setY(y);
 			Pistola[i].seLanzo();
+			if (direccion == -1)
+				Pistola[i].OtroLado();
+			direccion = 1;
+		}
 	}
+	void CambiarDireccion() {
+		direccion = direccion * -1;
+		Disparar();
+	}
+
 };

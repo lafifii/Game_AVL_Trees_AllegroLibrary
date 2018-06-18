@@ -73,6 +73,9 @@ int main() {
 				DOWN = true;
 			else if (ev.keyboard.keycode == ALLEGRO_KEY_X)
 				myScene.Disparar();
+
+			else if (ev.keyboard.keycode == ALLEGRO_KEY_Z)
+				myScene.CambiarDireccionBalas();
 		}
 		else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
 
