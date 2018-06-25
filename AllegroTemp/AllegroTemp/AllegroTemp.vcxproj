@@ -89,6 +89,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -128,29 +129,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="Errores.txt" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="algif.c" />
-    <ClCompile Include="bitmap.c" />
-    <ClCompile Include="gif.c" />
-    <ClCompile Include="includes.h" />
-    <ClCompile Include="lzw.c" />
-    <ClCompile Include="Source.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="algif.h" />
     <ClInclude Include="Arbol.h" />
     <ClInclude Include="Beacon.h" />
     <ClInclude Include="CBalas.h" />
     <ClInclude Include="CBlock.h" />
     <ClInclude Include="CEnemigo.h" />
     <ClInclude Include="CPlayer.h" />
+    <ClInclude Include="includes.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Juego.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Objeto.h" />
     <ClInclude Include="Recurso.h" />
     <ClInclude Include="Scene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -22,7 +22,7 @@ class AVLTree {
 
 public:
 	AVLTree();
-	AVLTree(std::function<void(T, T)> compare) : compare(compare) {}
+	AVLTree(int ind);
 	~AVLTree();
 
 	unsigned int length();
@@ -37,7 +37,24 @@ public:
 
 template <typename T>
 AVLTree<T>::AVLTree() : root(nullptr) {
-	compare = [](T a, T b) { return a.getIndex() - b.getIndex(); };
+	compare = [](T a, T b) 
+	{ return a->getIndex() - b->getIndex(); };
+}
+template <typename T>
+AVLTree<T>::AVLTree(int ind) 
+{
+	root = nullptr;
+	if (ind == 1)
+		compare = [](T a, T b) { return a->getNEnemigos() - b->getNEnemigos(); };
+	else if(ind == 2)
+		compare = [](T a, T b) { return a->getNRecursos() - b->getNRecursos(); };
+	else if (ind == 3)
+		compare = [](T a, T b) { return a->getNBloques() - b->getNBloques(); };
+	else if (ind == 4)
+		compare = [](T a, T b) { return a->getDistancia() - b->getDistancia(); };
+	else 
+		compare = [](T a, T b) {
+		return  a->getIdUbicacion() - b->getIdUbicacion();	};
 }
 
 template <typename T>
@@ -76,6 +93,7 @@ template <typename T>
 unsigned int AVLTree<T>::length(Node* node) {
 	return node != nullptr ? node->length : 0;
 }
+
 template <typename T>
 int AVLTree<T>::heightAVL() {
 	return heightAVL(root);
@@ -88,7 +106,7 @@ int AVLTree<T>::heightAVL(Node* node) {
 template <typename T>
 void AVLTree<T>::update(Node* node) {
 	if (node != nullptr) {
-		node->heightAVL = 1 + std::max(heightAVL(node->leftChild), heightAVL(node->rightChild));
+		node->heightAVL = 1 + max(heightAVL(node->leftChild), heightAVL(node->rightChild));
 		node->length = 1 + length(node->leftChild) + length(node->rightChild);
 	}
 }

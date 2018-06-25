@@ -1,5 +1,0 @@
-
-07:20 11/06 Scene.h -> "void BuscarBeacon(function<void(T)> func, Beacon o)"
-08:13 11/06 CPlayer.h -> update() -> "Pistola.erase(Pistola.begin() + i);"
-22:08 11/06 La imagen en el push_back de los bloques en generar escena de Scene.h estaba en "bloque.h"
-23:48 11/06 Error al mover enemigo
