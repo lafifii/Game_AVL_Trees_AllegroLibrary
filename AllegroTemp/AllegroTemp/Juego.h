@@ -3,6 +3,7 @@
 
 class CJuego {
 
+	string file;
 	Scene *myscene;
 	ALLEGRO_BITMAP *imgpuntero;
 	AVLTree <Beacon*> ArboldeBusquedaPorEnemigos;
@@ -19,6 +20,8 @@ class CJuego {
 	}punteroEleccion;
 public:
 	CJuego() {
+
+		file = "mapa.txt";
 		bmp = al_load_bitmap("img/tele.jpg");
 		punteroEleccion.x = 290;
 		punteroEleccion.y = 70;
@@ -31,8 +34,26 @@ public:
 		ArboldeBusquedaPorNBloques = AVLTree<Beacon*>(5);
 		imgpuntero = al_load_bitmap("img/punt.png");
 
-		for (int i = 0; i < 1000; i++)
+
+		ALLEGRO_BITMAP *bgaux = al_load_bitmap("img/tele.jpg");
+		ALLEGRO_BITMAP *bgaux2 = al_load_bitmap("img/load.jpg");
+
+		al_draw_scaled_bitmap(bgaux, 0, 0, al_get_bitmap_width(bgaux), al_get_bitmap_height(bgaux), 0, 0, width, height, 1);
+
+		al_draw_scaled_bitmap(bgaux2, 0, 0, al_get_bitmap_width(bgaux2), al_get_bitmap_height(bgaux2), width / 2 - 100, 50, 200, 60, 1);
+
+		size_t aux_n = 10000;
+
+		int cont = 0, cont2 = 1;
+		for (int i = 0; i < aux_n; i++, cont++)
 		{
+			if (cont == aux_n/width)
+			{
+				al_draw_filled_rectangle(cont2, 200, cont2 + 2, 230, al_map_rgb(255, 255, 255));
+				cont2 += 3;
+				cont = 0;
+			}
+			al_flip_display();
 			Beacon *o = new Beacon(i);
 			myscene->AddArbol(o);
 			ArboldeBusquedaPorEnemigos.add(o);
@@ -42,20 +63,21 @@ public:
 			ArboldeBusquedaPorNBloques.add(o);
 
 		}
+		al_destroy_bitmap(bgaux);
+		al_destroy_bitmap(bgaux2);
 		myscene->Inicializar_Valores();
 	}
-	//Este usa para cargar partida
-	/*
-		Para guardar guarda lit todos los beacons el indice menor en el que se quedo el personaje y el maxbeacons del scene
-		entonces para cargar tomas estos y llenas todo 
-		cada beacon tiene el bool de YaGenerado algo asi,, esto es super importante que se guarde para que no se genere otra vez
-	*/
+
 	CJuego(int index, int inmenor, int nmayor) {
+
+
+		file = "mapa.txt";
+		ifstream fs(file);
+		string cadena;
 
 		bmp = al_load_bitmap("img/tele.jpg");
 		punteroEleccion.x = 290;
 		punteroEleccion.y = 70;
-		myscene = new Scene(index);
 		eligio = false;
 		ArboldeBusquedaPorEnemigos = AVLTree<Beacon*>(1);
 		ArboldeBusquedaPorRecursos = AVLTree<Beacon*>(2);
@@ -64,10 +86,61 @@ public:
 		ArboldeBusquedaPorNBloques = AVLTree<Beacon*>(5);
 		imgpuntero = al_load_bitmap("img/punt.png");
 
-		for (int i = inmenor; i < nmayor; i++)
+
+		getline(fs, cadena, ' ');
+		inmenor = atoi(cadena.c_str());
+		getline(fs, cadena, ' ');
+		nmayor = atoi(cadena.c_str());
+		getline(fs, cadena, ' ');
+		index = atoi(cadena.c_str());
+
+
+		myscene = new Scene();
+		myscene->setIndice(index);
+
+		bool fuegenerado2;
+		int nenemigos2;
+		int nrecursos2;
+		bool portaBusq;
+		int nbloques2;
+		int id2;
+		int nuevoindex;
+		ALLEGRO_BITMAP *bgaux = al_load_bitmap("img/tele.jpg");
+		ALLEGRO_BITMAP *bgaux2 = al_load_bitmap("img/load.jpg");
+
+		al_draw_scaled_bitmap(bgaux, 0, 0, al_get_bitmap_width(bgaux), al_get_bitmap_height(bgaux), 0, 0, width, height, 1);
+
+		al_draw_scaled_bitmap(bgaux2, 0, 0, al_get_bitmap_width(bgaux2), al_get_bitmap_height(bgaux2), width/2 - 100, 50, 200, 60, 1);
+
+		size_t aux_n = (inmenor + nmayor)/width;
+
+		int cont = 0, cont2 = 1;
+		for (int i = inmenor; i < nmayor; i++, cont++)
 		{
-			Beacon *o = new Beacon(i);
-			LlenarInfoDeBeacon(o);
+			if (cont == aux_n )
+			{
+				al_draw_filled_rectangle(cont2, 200, cont2 + 2, 230, al_map_rgb(255, 255, 255));
+				cont2 += 3;
+				cont = 0;
+			}
+			al_flip_display();
+			 
+			getline(fs, cadena, ' ');
+			nuevoindex = atoi(cadena.c_str());
+			getline(fs, cadena,' ');
+			fuegenerado2 = atoi(cadena.c_str());
+			 getline(fs, cadena,' ');
+			nenemigos2 = atoi(cadena.c_str());
+			 getline(fs, cadena,' ');
+			nrecursos2 = atoi(cadena.c_str());
+			 getline(fs, cadena,' ');
+			portaBusq = atoi(cadena.c_str());
+			 getline(fs, cadena,' ');
+			nbloques2 = atoi(cadena.c_str());
+			 getline(fs, cadena,' ');
+			id2 = atoi(cadena.c_str());
+
+			Beacon *o = new Beacon(nuevoindex,fuegenerado2,nenemigos2,nrecursos2,portaBusq,nbloques2,id2);
 			myscene->AddArbol(o);
 			ArboldeBusquedaPorEnemigos.add(o);
 			ArboldeBusquedaPorRecursos.add(o);
@@ -76,13 +149,13 @@ public:
 			ArboldeBusquedaPorNBloques.add(o);
 
 		}
-		myscene->Inicializar_Valores();
+		al_destroy_bitmap(bgaux);
+		al_destroy_bitmap(bgaux2);
+		fs.close();
+
+		myscene->CargarPartida();
 	}
-	void LlenarInfoDeBeacon(Beacon *o) {
-	//Aui abre el archivo de la info de los beacons y mapas
-	//le pones set fue generado y todo eso y luego ya lo agregas al arbol :) que sean dos txt uno con solo info del player y otro con info del mapa que es el que usaremos aqui
-	//lees las 5 primeras lineas o algo asi...te dejo un txt de como podrias guardar la info
-	}
+	
 	void Disparar()
 	{
 		myscene->Disparar();
@@ -203,5 +276,41 @@ public:
 		al_destroy_bitmap(bmp);
 
 		delete myscene;
+	}
+	void CargarInfo() {
+		myscene->CargarPlayer();
+	}
+	void GuardarInfo() {
+		myscene->GuardarPlayer();
+	}
+	void GuardarMapa() {
+
+		ofstream fs(file);
+		fs.clear();
+		fs << myscene->getMinBeacon();
+		fs << " " << myscene->getMaxBeacon();
+		fs << " " << myscene->getIndiceActual();
+		Beacon *beaconguardar;
+
+		for (int i = myscene->getMinBeacon(); i < myscene->getMaxBeacon(); i++) {
+
+			if (i == myscene->getIndiceActual())
+				beaconguardar = myscene->getInfoActual();
+			else 
+				beaconguardar = myscene->getBeacon(i);
+			
+			fs << " " << i;
+			fs << " " << beaconguardar->getFueGenerado();
+			fs << " " << beaconguardar->getNEnemigos();
+			fs << " " << beaconguardar->getNRecursos();
+			fs << " " << beaconguardar->getEsPortal();
+			fs << " " << beaconguardar->getNBloques();
+			fs << " " << beaconguardar->getIdUbicacion();
+			
+		}
+		fs.flush();
+		fs.close();
+	
+	
 	}
 };

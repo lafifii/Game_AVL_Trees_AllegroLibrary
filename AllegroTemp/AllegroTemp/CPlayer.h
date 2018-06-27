@@ -11,6 +11,7 @@ class CPlayer :
 
 	ALLEGRO_BITMAP *img, *img2;
 	ALLEGRO_BITMAP *l, *r, *balita;
+	CGuardado oinfo;
 public:
 
 	CPlayer() :Objeto::Objeto() { };
@@ -23,14 +24,15 @@ public:
 		img2 = NULL;
 		l = NULL;
 		r = NULL;
-		for (int i = 0; i < 5; i++)
+		nbalas = 5;
+		for (int i = 0; i < nbalas; i++)
 			Pistola.push_back(CBalas(x, y, 15, 15));
 
 		energia = 100;
-		nagua = ncomida = nbalas = nmonedas = puntos = 0;
+		nagua = ncomida = nmonedas = puntos = 0;
 		direccion = 1;
 	}
-
+	
 	~CPlayer() {
 		if (img2 != NULL)
 			al_destroy_bitmap(img2);
@@ -70,6 +72,9 @@ public:
 		balita = b;
 	}
 
+
+
+
 	int getPuntos() { return puntos; }
 	void RestarPuntos(int p) { puntos -= p; }
 	void SumarPuntos(int p) { puntos += p; }
@@ -79,7 +84,6 @@ public:
 	int getMonedas() { return nmonedas; }
 	void RestarComida() { ncomida--; }
 	int getComida() { return ncomida; }
-	int getDireccion() { return direccion; }
 	void TomarAgua() {
 		if (nagua > 0) {
 			nagua--;
@@ -303,5 +307,31 @@ public:
 			Pistola[i].setExiste(false);
 	
 	}
-
+	void GuardarInfo() {
+		oinfo.setEnergia(energia);
+		oinfo.setNagua(nagua);
+		oinfo.setNcomida(ncomida);
+		oinfo.setNmonedas(nmonedas);
+		oinfo.setPuntos(puntos);
+		oinfo.setX(x);
+		oinfo.setY(y);
+		oinfo.setBalas(nbalas);
+		oinfo.Grabar();
+	
+	}
+	void CargarInfor(){
+		oinfo.LeerArchivo();
+		energia = oinfo.getEnergia();
+		nagua = oinfo.getNagua();
+		nmonedas = oinfo.getNmonedas();
+		puntos = oinfo.getPuntos();
+		ncomida = oinfo.getNcomida();
+		x = oinfo.getX();
+		y = oinfo.getY();
+		Pistola.clear();
+		nbalas = oinfo.getBalas();
+		for(int i=0;i<nbalas;i++)
+			Pistola.push_back(CBalas(x, y, 15, 15));
+	}
 };
+

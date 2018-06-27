@@ -10,6 +10,7 @@ class Menu {
 
 	bool juagar;
 	bool salir;
+	bool cargar;
 
 	short pantalla; // 1: inicial - 2: cargar partida - 3: creditos
 public:
@@ -23,6 +24,7 @@ public:
 
 		juagar = false;
 		salir = false;
+		cargar = false;
 
 		pantalla = 1;
 	}
@@ -75,6 +77,7 @@ public:
 		}
 		else if (checkClicks(bcargar)) {
 
+			cargar = true;
 			in = Input(width / 2, height / 2);
 			pantalla = 2;
 		}
@@ -110,7 +113,7 @@ public:
 
 	void cargarPartida(ALLEGRO_FONT *f, CJuego *j) {
 
-		string s;
+	/*	string s;
 
 		s = "Escriba el nombre de la partida";
 		al_draw_text(f, al_map_rgb(255, 255, 255), width / 2, height / 14 * 2, ALLEGRO_ALIGN_CENTER, s.c_str());
@@ -122,7 +125,8 @@ public:
 			//freopen(in.getString().c_str(), "r", stdin);
 
 			//fclose(stdin);
-		}
+		}*/
+
 	}
 
 	bool getJugar() {
@@ -130,6 +134,9 @@ public:
 		return juagar;
 	}
 
+	bool getCargar() {
+		return cargar;
+	}
 	void drawCredits(ALLEGRO_FONT *f) {
 
 		string s;
@@ -137,13 +144,13 @@ public:
 		s = "Credits";
 		al_draw_text(f, al_map_rgb(255, 255, 255), width / 2, height / 14 * 2, ALLEGRO_ALIGN_CENTER, s.c_str());
 
-		s = "Franco Moloche";
+		s = "Fiorella Barrientos";
 		al_draw_text(f, al_map_rgb(255, 255, 255), width / 2, 200, ALLEGRO_ALIGN_CENTER, s.c_str());
 
-		s = "Fiorella Barrientos";
+		s = "Franco Moloche";
 		al_draw_text(f, al_map_rgb(255, 255, 255), width / 2, 300, ALLEGRO_ALIGN_CENTER, s.c_str());
 
-		s = "Juan el men";
+		s = "Juan";
 		al_draw_text(f, al_map_rgb(255, 255, 255), width / 2, 400, ALLEGRO_ALIGN_CENTER, s.c_str());
 
 		if (CLICK) {

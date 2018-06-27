@@ -41,6 +41,7 @@ extern bool num[10];
 #include "Arbol.h"
 #include "Objeto.h"
 #include "CBalas.h"
+#include "CGuardado.h"
 #include "Cplayer.h"
 #include "CEnemigo.h"
 #include "Recurso.h"

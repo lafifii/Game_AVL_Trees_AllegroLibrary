@@ -29,10 +29,60 @@ public:
 		nombres.push_back("NORTE");
 	
 		idUbicacion = rand() % 16;
-		ubicacion = nombres[rand() % 16];
+		ubicacion = nombres[idUbicacion];
 
 	}
-	
+
+	Beacon(int numerodeBeacon, bool fuegenerado2, int nenemigos2, int nrecursos2, bool portaBusq, int nbloques2, int id2) {
+		
+		//Cosas Guardadas
+		fueGenerado = fuegenerado2;
+		portaldebusqueda = portaBusq;
+		nenemigos = nenemigos2;
+		nrecursos = nrecursos2;
+		kmDistancia = numerodeBeacon * 5.5;
+		indice = numerodeBeacon;
+		nbloques = nbloques2;
+		idUbicacion = id2;
+
+		nombres.push_back("NORTE NORESTE"); 
+		nombres.push_back("NOROESTE");
+		nombres.push_back("ESTE NORESTE");
+		nombres.push_back("ESTE"); nombres.push_back("ESTE SUDESTE");
+		nombres.push_back("SUDESTE"); nombres.push_back("SUR SUDESTE"); nombres.push_back("SUR"); nombres.push_back("SUR SUDOESTE");
+		nombres.push_back("SUDOESTE");
+		nombres.push_back("OESTE SUDOESTE");
+		nombres.push_back("OESTE"); nombres.push_back("OESTE NOROESTE"); nombres.push_back("NOROESTE"); nombres.push_back("NORTE NOROESTE");
+		nombres.push_back("NORTE");
+		
+		ubicacion = nombres[idUbicacion];
+
+	}
+	void CargarInfo() {
+		if (fueGenerado) {
+			fueGenerado = true;
+			//Generando enemigos
+			for (int i = 0; i < nenemigos; i++)
+				ve.push_back(CEnemy(80 * i, 100, 50, 50));
+			//generando bloques
+			for (int i = 0; i <nbloques; i++)
+			{
+				if (i % 2 == 0)
+					vb.push_back(CBlock(0 + i * 100, 400, 70 + rand() % 140, 50));
+				else
+					vb.push_back(CBlock(400 + i * 100, 250, 70 + rand() % 120, 50));
+			}
+			srand(time(NULL));
+			//Generando recurso
+			for (int i = 0; i < nrecursos - 1; i++)
+				vr.push_back(Recurso(1 + rand() % 4));
+			if (portaldebusqueda)
+				vr.push_back(Recurso(5));
+			else
+				vr.push_back(Recurso(1 + rand() % 4));
+
+		}
+	}
 	void GenerarEscenario() {
 		if(!fueGenerado){
 			fueGenerado = true;
@@ -75,20 +125,43 @@ public:
 				idUbicacion = i;
 
 	}
+	bool getFueGenerado() { return fueGenerado; }
+	int getNEnemigos() { 
+		if (nenemigos < 0)
+			nenemigos = 0;
 
-	int getNEnemigos() { return nenemigos; }
-	int getNRecursos() { return nrecursos; }
-	int getNBloques() { return nbloques; }
-	int getIndex() { return indice; }
-	bool PortalBusqueda() { return portaldebusqueda; }
+		return nenemigos;
+	}
+	int getNRecursos() { 
+		if (nrecursos < 0)
+			nrecursos = 0;
+		return nrecursos; 
+	}
+	int getNBloques() {
+		if (nbloques < 0)
+			nbloques = 0;
+		return nbloques;
+	}
+	int getIndex() {
+		return indice;
+	}
 	float getDistancia() { return kmDistancia; }
-	int getIdUbicacion() { return idUbicacion; }
+	int getIdUbicacion() { 
+		for (int i = 0; i < nombres.size(); i++)
+			if (ubicacion == nombres[i])
+				return i;
+		; }
+	bool getEsPortal() { return portaldebusqueda; }
+
+
+	bool PortalBusqueda() { return portaldebusqueda; }
+
 	string getUbicacion() { return ubicacion; }
 
 	void update(ALLEGRO_BITMAP *fondo, ALLEGRO_BITMAP *ie, ALLEGRO_BITMAP *ie2, ALLEGRO_BITMAP *ib, ALLEGRO_BITMAP *ib2,
 		ALLEGRO_BITMAP *icoin, ALLEGRO_BITMAP *ifood, ALLEGRO_BITMAP *iagua, ALLEGRO_BITMAP *ibala, ALLEGRO_BITMAP *iportal) {
 		
-	al_draw_scaled_bitmap(fondo, 0, 0, al_get_bitmap_width(fondo), al_get_bitmap_height(fondo),
+		al_draw_scaled_bitmap(fondo, 0, 0, al_get_bitmap_width(fondo), al_get_bitmap_height(fondo),
 			0, 0, width, height, 1);
 
 		for (vector<CEnemy>::iterator it = ve.begin(); it != ve.end(); it++)

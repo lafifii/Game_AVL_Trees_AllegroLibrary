@@ -18,7 +18,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Arbol.h">
+    <ClInclude Include="Scene.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Beacon.h">
@@ -33,6 +33,9 @@
     <ClInclude Include="CEnemigo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="CGuardado.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
     <ClInclude Include="CPlayer.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -45,16 +48,16 @@
     <ClInclude Include="Juego.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
     <ClInclude Include="Objeto.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Recurso.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
+    <ClInclude Include="Arbol.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

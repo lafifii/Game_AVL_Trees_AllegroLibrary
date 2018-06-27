@@ -16,10 +16,7 @@ class AVLTree {
 	int heightAVL(Node* node);
 	void update(Node* node);
 	T search(Node* node, T key);
-	void preorder(Node* node, std::function<void(T)> proc, int& i, int limit);
-	void inorder(Node* node, std::function<void(T)> proc, int& i, int limit);
-	void postorder(Node* node, std::function<void(T)> proc, int& i, int limit);
-
+	
 public:
 	AVLTree();
 	AVLTree(int ind);
@@ -29,10 +26,6 @@ public:
 	int heightAVL();
 	void add(T element);
 	T search(T key);
-	void preorder(std::function<void(T)> proc, int limit = INF);
-	void inorder(std::function<void(T)> proc, int limit = INF);
-	void postorder(std::function<void(T)> proc, int limit = INF);
-	void bfs(std::function<void(T)> proc, int limit = INF);
 };
 
 template <typename T>
@@ -49,12 +42,17 @@ AVLTree<T>::AVLTree(int ind)
 	else if(ind == 2)
 		compare = [](T a, T b) { return a->getNRecursos() - b->getNRecursos(); };
 	else if (ind == 3)
-		compare = [](T a, T b) { return a->getNBloques() - b->getNBloques(); };
-	else if (ind == 4)
 		compare = [](T a, T b) { return a->getDistancia() - b->getDistancia(); };
-	else 
+		
+	else if (ind == 4)
 		compare = [](T a, T b) {
-		return  a->getIdUbicacion() - b->getIdUbicacion();	};
+		if (a->getUbicacion() == b->getUbicacion())return 0;
+		if (a->getUbicacion() > b->getUbicacion())return 1;
+		if (a->getUbicacion() < b->getUbicacion())return -1;
+	};
+		
+	else 
+		compare = [](T a, T b) { return a->getNBloques() - b->getNBloques(); };
 }
 
 template <typename T>
@@ -172,13 +170,16 @@ void AVLTree<T>::add(Node*& node, T element) {
 		balance(node);
 	}
 }
+
 template <typename T>
 T AVLTree<T>::search(T key) {
 	return search(root, key);
 }
 template <typename T>
 T AVLTree<T>::search(Node* node, T key) {
+	
 	if (node != nullptr) {
+
 		if (compare(key, node->element) == 0) {
 			return node->element;
 		}
@@ -191,71 +192,5 @@ T AVLTree<T>::search(Node* node, T key) {
 	}
 	else {
 		return NONE;
-	}
-}
-template <typename T>
-void AVLTree<T>::preorder(std::function<void(T)> proc, int limit) {
-	int i = 0;
-	preorder(root, proc, i, limit);
-}
-template <typename T>
-void AVLTree<T>::preorder(Node* node, std::function<void(T)> proc, int& i, int limit) {
-	if (node != nullptr && i < limit) {
-		if (i < limit) {
-			proc(node->element);
-			i++;
-		}
-		preorder(node->leftChild, proc, i, limit);
-		preorder(node->rightChild, proc, i, limit);
-	}
-}
-template <typename T>
-void AVLTree<T>::inorder(std::function<void(T)> proc, int limit) {
-	int i = 0;
-	inorder(root, proc, i, limit);
-}
-template <typename T>
-void AVLTree<T>::inorder(Node* node, std::function<void(T)> proc, int& i, int limit) {
-	if (node != nullptr && i < limit) {
-		inorder(node->leftChild, proc, i, limit);
-		if (i < limit) {
-			proc(node->element);
-			i++;
-		}
-		inorder(node->rightChild, proc, i, limit);
-	}
-}
-
-template <typename T>
-void AVLTree<T>::postorder(std::function<void(T)> proc, int limit) {
-	int i = 0;
-	postorder(root, proc, i, limit);
-}
-
-template <typename T>
-void AVLTree<T>::postorder(Node* node, std::function<void(T)> proc, int& i, int limit) {
-	if (node != nullptr && i < limit) {
-		postorder(node->leftChild, proc, i, limit);
-		postorder(node->rightChild, proc, i, limit);
-		if (i < limit) {
-			proc(node->element);
-			i++;
-		}
-	}
-}
-
-template <typename T>
-void AVLTree<T>::bfs(std::function<void(T)> proc, int limit) {
-	int i = 0;
-	std::queue<Node*> qu;
-	qu.push(root);
-	while (!qu.empty() && i++ < limit) {
-		Node* node = qu.front();
-		qu.pop();
-		if (node != nullptr) {
-			proc(node->element);
-			qu.push(node->leftChild);
-			qu.push(node->leftRight);
-		}
 	}
 }

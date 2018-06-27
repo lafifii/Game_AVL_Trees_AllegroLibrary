@@ -137,6 +137,7 @@
     <ClInclude Include="CBalas.h" />
     <ClInclude Include="CBlock.h" />
     <ClInclude Include="CEnemigo.h" />
+    <ClInclude Include="CGuardado.h" />
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="includes.h" />
     <ClInclude Include="Input.h" />

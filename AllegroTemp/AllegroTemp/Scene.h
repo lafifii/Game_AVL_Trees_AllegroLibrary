@@ -63,39 +63,14 @@ public:
 		ArboldeBeacons = AVLTree<Beacon*>();
 
 	}
-	//Este usa para cargar partida
-	//Aqui se carga con un txt2 donde solo se guarde info del personaje o algo asi
-	Scene(int index) {
-
-		ie = al_load_bitmap("img/TempEn.png");
-		ie2 = al_load_bitmap("img/TempEn2.png");
-		ib = al_load_bitmap("img/piso.png");
-		ib2 = al_load_bitmap("img/piso2.png");
-		fondo2 = al_load_bitmap("img/fondo2.jpg");
-		fondo3 = al_load_bitmap("img/fondo3.jpg");
-		fondo4 = al_load_bitmap("img/fondo4.jpg");
-		fondo = al_load_bitmap("img/bg.png");
-
-		icoin = al_load_bitmap("img/coin.png");
-		ifood = al_load_bitmap("img/food.png");
-		iagua = al_load_bitmap("img/agua.png");
-		iportal = al_load_bitmap("img/portal.png");
-		ibala = al_load_bitmap("img/balita.png");
-
-		Buscando = eligio = false;
-
-		//Llenar info del personaje con los valores del guardado somehow
-		player = CPlayer(50, height / 2, 40, 40);
-		player.setImagePlayer(al_load_bitmap("img/TempPlayer.png"), al_load_bitmap("img/TempPlayer2.png"));
-		player.setImagePistola(al_load_bitmap("img/balai.png"), al_load_bitmap("img/balad.png"));
-
-		nfondo = minBeacon = maxBeacons = 0;
-		indice = index;
-		Informacion = new Beacon();
-		ArboldeBeacons = AVLTree<Beacon*>();
-
+	void setIndice(int i) 
+	{ 
+		indice = i;
 	}
 	void AddArbol(Beacon *o) {
+
+		if (o->getIndex() < minBeacon)
+			minBeacon = o->getIndex();
 
 		ArboldeBeacons.add(o);
 		maxBeacons++;
@@ -149,7 +124,6 @@ public:
 		Beacon *buscar = new Beacon(indice);
 		return ArboldeBeacons.search(buscar);
 	}
-
 	void CambiarEscena(int a) {
 
 		if (a == -1)
@@ -169,12 +143,12 @@ public:
 
 		GenerarEscena();
 	}
+	void CargarPartida() {
 
-	void GenerarEscena() {
+		Beacon *buscar = new Beacon(indice);
+		Informacion = ArboldeBeacons.search(buscar);
 
-		
-		player.CambioEscena();
-		Informacion->GenerarEscenario();
+		Informacion->CargarInfo();
 		if (indice % 2 == 0)
 			Informacion->update(fondo, ie, ie2, ib, ib2, icoin, ifood, iagua, ibala, iportal);
 		if (indice % 3 == 0)
@@ -183,8 +157,25 @@ public:
 			Informacion->update(fondo3, ie, ie2, ib, ib2, icoin, ifood, iagua, ibala, iportal);
 		if (indice % 2 != 0 && indice % 3 != 0 && indice % 5 != 0)
 			Informacion->update(fondo4, ie, ie2, ib, ib2, icoin, ifood, iagua, ibala, iportal);
+	
 	}
+	void GenerarEscena() {
 
+		if (Informacion != nullptr) {
+
+			player.CambioEscena();
+			Informacion->GenerarEscenario();
+			if (indice % 2 == 0)
+				Informacion->update(fondo, ie, ie2, ib, ib2, icoin, ifood, iagua, ibala, iportal);
+			if (indice % 3 == 0)
+				Informacion->update(fondo2, ie, ie2, ib, ib2, icoin, ifood, iagua, ibala, iportal);
+			if (indice % 5 == 0)
+				Informacion->update(fondo3, ie, ie2, ib, ib2, icoin, ifood, iagua, ibala, iportal);
+			if (indice % 2 != 0 && indice % 3 != 0 && indice % 5 != 0)
+				Informacion->update(fondo4, ie, ie2, ib, ib2, icoin, ifood, iagua, ibala, iportal);
+		}
+	}
+	Beacon* getInfoActual() { return Informacion; }
 	bool update(ALLEGRO_FONT *font) {
 
 
@@ -274,4 +265,19 @@ public:
 	void PersonajeTomarAgua() { player.TomarAgua(); }
 	void PersonajeCome() { player.Comer(); }
 	void PersonajeCompraBalas() { player.Recargar(); }
+	void CargarPlayer() {
+		player.CargarInfor();
+	}
+	void GuardarPlayer() { 
+		player.GuardarInfo(); 
+	}
+	int getMinBeacon() { return minBeacon; }
+	int getMaxBeacon() { return maxBeacons; }
+	int getIndiceActual() { return indice; }
+	Beacon* getBeacon(int i)
+	{
+		Beacon *look = new Beacon(i);
+		ArboldeBeacons.search(look);
+		return look;
+	}
 };

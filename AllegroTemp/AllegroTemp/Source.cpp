@@ -5,7 +5,6 @@
 #endif
 
 #include "includes.h"
-
 float mouseX;
 float mouseY;
 
@@ -79,6 +78,11 @@ int main() {
 			redraw = true;
 		}
 		else if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+			if (ojuego != NULL)
+			{
+				ojuego->GuardarInfo();
+				ojuego->GuardarMapa();
+			}
 			break;
 		}
 		else if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
@@ -95,8 +99,10 @@ int main() {
 				DOWN = true;
 			else if (ev.keyboard.keycode == ALLEGRO_KEY_X)
 				ojuego->Disparar();
-
-			
+			else if (ev.keyboard.keycode == ALLEGRO_KEY_G) { //Guardar
+				ojuego->GuardarInfo();
+				ojuego->GuardarMapa();
+			}
 			else if (ev.keyboard.keycode == ALLEGRO_KEY_P)
 				ojuego->PersonajeCome();
 			else if (ev.keyboard.keycode == ALLEGRO_KEY_O)
@@ -230,8 +236,24 @@ int main() {
 					enMenu = false;
 					ojuego = new CJuego();
 				}
+				else if (MyM.getCargar())
+				{
+					enMenu = false;
 
-				if (MyM.getSalir()) break;
+					string file = "mapa.txt";
+					ifstream fs(file);
+					fs.seekg(0, ios::end);
+					int fsize = fs.tellg();
+					if (fsize == 0 || fsize == -1)
+						ojuego = new CJuego();
+					else {
+						ojuego = new CJuego(0, 0, 0);
+						ojuego->CargarInfo();
+					}
+				}
+
+				if (MyM.getSalir()) 
+					break;
 			}
 
 			if (c)
