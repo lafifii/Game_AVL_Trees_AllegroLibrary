@@ -150,7 +150,11 @@ public:
 		s = "Franco Moloche";
 		al_draw_text(f, al_map_rgb(255, 255, 255), width / 2, 300, ALLEGRO_ALIGN_CENTER, s.c_str());
 
+<<<<<<< HEAD
 		s = "Juan";
+=======
+		s = "Juan Peña";
+>>>>>>> 955105f7172619d50cf14098b14242504a676205
 		al_draw_text(f, al_map_rgb(255, 255, 255), width / 2, 400, ALLEGRO_ALIGN_CENTER, s.c_str());
 
 		if (CLICK) {

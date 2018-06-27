@@ -15,10 +15,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
+=======
+    <ClInclude Include="Arbol.h">
+>>>>>>> 955105f7172619d50cf14098b14242504a676205
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Beacon.h">
@@ -65,5 +69,8 @@
     <ClCompile Include="Source.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
