@@ -42,7 +42,7 @@ public:
 
 		al_draw_scaled_bitmap(bgaux2, 0, 0, al_get_bitmap_width(bgaux2), al_get_bitmap_height(bgaux2), width / 2 - 100, 50, 200, 60, 1);
 
-		size_t aux_n = 10000;
+		size_t aux_n = 100;
 
 		int cont = 0, cont2 = 1;
 		for (int i = 0; i < aux_n; i++, cont++)

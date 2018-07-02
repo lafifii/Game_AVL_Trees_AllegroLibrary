@@ -1,5 +1,4 @@
 ﻿  Source.cpp
-<<<<<<< HEAD
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(173): warning C4018: '<': no coinciden signed/unsigned
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(183): warning C4018: '<': no coinciden signed/unsigned
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(267): warning C4018: '<': no coinciden signed/unsigned
@@ -10,147 +9,86 @@ c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\input.h(22): warni
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\juego.h(48): warning C4018: '<': no coinciden signed/unsigned
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(236): warning C4018: '<': no coinciden signed/unsigned
   c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(208): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionRecurso<Recurso>(std::vector<Recurso,std::allocator<_Ty>>)' que se está compilando
-=======
-c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\cplayer.h(169): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\cplayer.h(179): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\cplayer.h(263): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\cplayer.h(294): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\beacon.h(100): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\input.h(22): warning C4018: '<': no coinciden signed/unsigned
-c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\cplayer.h(232): warning C4018: '<': no coinciden signed/unsigned
-  c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\scene.h(217): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionRecurso<Recurso>(std::vector<Recurso,std::allocator<_Ty>>)' que se está compilando
->>>>>>> 955105f7172619d50cf14098b14242504a676205
           with
           [
               _Ty=Recurso
           ]
-<<<<<<< HEAD
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(210): warning C4018: '<': no coinciden signed/unsigned
   c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(209): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionMalos<CEnemy>(std::vector<CEnemy,std::allocator<_Ty>>)' que se está compilando
-=======
-c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\cplayer.h(206): warning C4018: '<': no coinciden signed/unsigned
-  c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\scene.h(218): note: vea la referencia a la creación de instancias de plantilla de función 'int CPlayer::ColisionMalos<CEnemy>(std::vector<CEnemy,std::allocator<_Ty>>)' que se está compilando
->>>>>>> 955105f7172619d50cf14098b14242504a676205
           with
           [
               _Ty=CEnemy
           ]
-<<<<<<< HEAD
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\cplayer.h(224): warning C4018: '<': no coinciden signed/unsigned
 c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\type_traits(16707566): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
   c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\functional(16707566): note: vea la referencia a la creación de instancias de plantilla de función '_Rx std::_Invoker_ret<_Rx,false>::_Call<_Callable&,_Ty,_Ty>(_Callable &,_Ty &&,_Ty &&)' que se está compilando
-=======
-c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\cplayer.h(220): warning C4018: '<': no coinciden signed/unsigned
-c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\type_traits(16707566): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
-  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\functional(16707566): note: vea la referencia a la creación de instancias de plantilla de función '_Rx std::_Invoker_ret<_Rx,false>::_Call<_Callable&,_Ty,_Ty>(_Callable &,_Ty &&,_Ty &&)' que se está compilando
->>>>>>> 955105f7172619d50cf14098b14242504a676205
           with
           [
               _Rx=int,
               _Callable=AVLTree<Beacon *>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>,
               _Ty=Beacon *
           ]
-  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\functional(16707566): note: vea la referencia a la creación de instancias de plantilla de función '_Rx std::_Invoker_ret<_Rx,false>::_Call<_Callable&,_Ty,_Ty>(_Callable &,_Ty &&,_Ty &&)' que se está compilando
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\functional(16707566): note: vea la referencia a la creación de instancias de plantilla de función '_Rx std::_Invoker_ret<_Rx,false>::_Call<_Callable&,_Ty,_Ty>(_Callable &,_Ty &&,_Ty &&)' que se está compilando
           with
           [
               _Rx=int,
               _Callable=AVLTree<Beacon *>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>,
               _Ty=Beacon *
           ]
-<<<<<<< HEAD
   c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\functional(15732480): note: durante la compilación de la función miembro de plantilla clase de 'int std::_Func_impl_no_alloc<AVLTree<Beacon *>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>,_Ret,T,T>::_Do_call(T &&,T &&)'
-=======
-  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\functional(15732480): note: durante la compilación de la función miembro de plantilla clase de 'int std::_Func_impl_no_alloc<AVLTree<Beacon *>::{ctor}::<lambda_951e1eb7a7b0793dda7aeb9ee6a8408f>,_Ret,T,T>::_Do_call(T &&,T &&)'
->>>>>>> 955105f7172619d50cf14098b14242504a676205
           with
           [
               _Ret=int,
               T=Beacon *
           ]
-<<<<<<< HEAD
   c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\functional(1061): note: vea la referencia a la creación de instancias de plantilla clase de 'std::_Func_impl_no_alloc<AVLTree<Beacon *>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>,_Ret,T,T>' que se está compilando
-=======
-  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\functional(1061): note: vea la referencia a la creación de instancias de plantilla clase de 'std::_Func_impl_no_alloc<AVLTree<Beacon *>::{ctor}::<lambda_951e1eb7a7b0793dda7aeb9ee6a8408f>,_Ret,T,T>' que se está compilando
->>>>>>> 955105f7172619d50cf14098b14242504a676205
           with
           [
               _Ret=int,
               T=Beacon *
           ]
-<<<<<<< HEAD
   c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\functional(1312): note: vea la referencia a la creación de instancias de plantilla clase de 'std::_Is_large<_Impl>' que se está compilando
   c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\functional(1501): note: vea la referencia a la creación de instancias de plantilla de función 'void std::_Func_class<_Ret,T,T>::_Reset<AVLTree<T>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>>(_Fx &&)' que se está compilando
-=======
-  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\functional(1312): note: vea la referencia a la creación de instancias de plantilla clase de 'std::_Is_large<_Impl>' que se está compilando
-  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\functional(1501): note: vea la referencia a la creación de instancias de plantilla de función 'void std::_Func_class<_Ret,T,T>::_Reset<AVLTree<T>::{ctor}::<lambda_951e1eb7a7b0793dda7aeb9ee6a8408f>>(_Fx &&)' que se está compilando
->>>>>>> 955105f7172619d50cf14098b14242504a676205
           with
           [
               _Ret=int,
               T=Beacon *,
               _Fx=AVLTree<Beacon *>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>
           ]
-<<<<<<< HEAD
   c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\functional(1501): note: vea la referencia a la creación de instancias de plantilla de función 'void std::_Func_class<_Ret,T,T>::_Reset<AVLTree<T>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>>(_Fx &&)' que se está compilando
-=======
-  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\functional(1501): note: vea la referencia a la creación de instancias de plantilla de función 'void std::_Func_class<_Ret,T,T>::_Reset<AVLTree<T>::{ctor}::<lambda_951e1eb7a7b0793dda7aeb9ee6a8408f>>(_Fx &&)' que se está compilando
->>>>>>> 955105f7172619d50cf14098b14242504a676205
           with
           [
               _Ret=int,
               T=Beacon *,
               _Fx=AVLTree<Beacon *>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>
           ]
-<<<<<<< HEAD
   c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\functional(1563): note: vea la referencia a la creación de instancias de plantilla de función 'std::function<int (T,T)>::function<AVLTree<T>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>,void>(_Fx)' que se está compilando
-=======
-  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\functional(1563): note: vea la referencia a la creación de instancias de plantilla de función 'std::function<int (T,T)>::function<AVLTree<T>::{ctor}::<lambda_951e1eb7a7b0793dda7aeb9ee6a8408f>,void>(_Fx)' que se está compilando
->>>>>>> 955105f7172619d50cf14098b14242504a676205
           with
           [
               T=Beacon *,
               _Fx=AVLTree<Beacon *>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>
           ]
-<<<<<<< HEAD
   c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.14.26428\include\functional(1563): note: vea la referencia a la creación de instancias de plantilla de función 'std::function<int (T,T)>::function<AVLTree<T>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>,void>(_Fx)' que se está compilando
-=======
-  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.14.26428\include\functional(1563): note: vea la referencia a la creación de instancias de plantilla de función 'std::function<int (T,T)>::function<AVLTree<T>::{ctor}::<lambda_951e1eb7a7b0793dda7aeb9ee6a8408f>,void>(_Fx)' que se está compilando
->>>>>>> 955105f7172619d50cf14098b14242504a676205
           with
           [
               T=Beacon *,
               _Fx=AVLTree<Beacon *>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>
           ]
-<<<<<<< HEAD
   c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\arbol.h(45): note: vea la referencia a la creación de instancias de plantilla de función 'std::function<int (T,T)> &std::function<int (T,T)>::operator =<AVLTree<T>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>,void>(_Fx &&)' que se está compilando
-=======
-  c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\arbol.h(54): note: vea la referencia a la creación de instancias de plantilla de función 'std::function<int (T,T)> &std::function<int (T,T)>::operator =<AVLTree<T>::{ctor}::<lambda_951e1eb7a7b0793dda7aeb9ee6a8408f>,void>(_Fx &&)' que se está compilando
->>>>>>> 955105f7172619d50cf14098b14242504a676205
           with
           [
               T=Beacon *,
               _Fx=AVLTree<Beacon *>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>
           ]
-<<<<<<< HEAD
   c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\arbol.h(45): note: vea la referencia a la creación de instancias de plantilla de función 'std::function<int (T,T)> &std::function<int (T,T)>::operator =<AVLTree<T>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>,void>(_Fx &&)' que se está compilando
-=======
-  c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\arbol.h(54): note: vea la referencia a la creación de instancias de plantilla de función 'std::function<int (T,T)> &std::function<int (T,T)>::operator =<AVLTree<T>::{ctor}::<lambda_951e1eb7a7b0793dda7aeb9ee6a8408f>,void>(_Fx &&)' que se está compilando
->>>>>>> 955105f7172619d50cf14098b14242504a676205
           with
           [
               T=Beacon *,
               _Fx=AVLTree<Beacon *>::{ctor}::<lambda_0a4f66e8bb78ee2fbce4a89f8be17bbf>
           ]
-<<<<<<< HEAD
   c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\arbol.h(38): note: durante la compilación de la función miembro de plantilla clase de 'AVLTree<Beacon *>::AVLTree(int)'
   c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\juego.h(30): note: vea la referencia a la creación de instancias de plantilla de función 'AVLTree<Beacon *>::AVLTree(int)' que se está compilando
   c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\scene.h(8): note: vea la referencia a la creación de instancias de plantilla clase de 'AVLTree<Beacon *>' que se está compilando
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\beacon.h(153): warning C4715: 'Beacon::getIdUbicacion': no todas las rutas de acceso de control devuelven un valor
 c:\users\user\documents\aed-tf\tf_aed\allegrotemp\allegrotemp\arbol.h(52): warning C4715: '<lambda_c862a8f5e2d6cbc9559775bdeb8ab05d>::operator()': no todas las rutas de acceso de control devuelven un valor
   AllegroTemp.vcxproj -> C:\Users\user\Documents\AED-TF\TF_AED\AllegroTemp\Debug\AllegroTemp.exe
-=======
-  c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\arbol.h(45): note: durante la compilación de la función miembro de plantilla clase de 'AVLTree<Beacon *>::AVLTree(int)'
-  c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\juego.h(27): note: vea la referencia a la creación de instancias de plantilla de función 'AVLTree<Beacon *>::AVLTree(int)' que se está compilando
-  c:\users\user\desktop\proyectos3ciclo\aed\tf\allegrotemp\allegrotemp\scene.h(8): note: vea la referencia a la creación de instancias de plantilla clase de 'AVLTree<Beacon *>' que se está compilando
-  AllegroTemp.vcxproj -> C:\Users\user\Desktop\Proyectos3ciclo\AED\tf\AllegroTemp\Debug\AllegroTemp.exe
->>>>>>> 955105f7172619d50cf14098b14242504a676205
